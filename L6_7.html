@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CRUD Operations on Array</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <h1>CRUD Operations on Array</h1>
+    <input type="text" id="name" placeholder="Enter name">
+    <input type="text" id="age" placeholder="Enter age">
+    <button id="add-btn">Add</button>
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+        </tbody>
+    </table>
+
+    <script>
+        let data = [];
+
+        function addData() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            data.push({ name, age });
+            renderTable();
+            document.getElementById('name').value = '';
+            document.getElementById('age').value = '';
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Data added successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+        function renderTable() {
+            const tableBody = document.getElementById('table-body');
+            tableBody.innerHTML = '';
+            data.forEach((item, index) => {
+                const row = `
+      <tr>
+        <td>${item.name}</td>
+        <td>${item.age}</td>
+        <td>
+          <button class="edit-btn" data-index="${index}">Edit</button>
+          <button class="delete-btn" data-index="${index}">Delete</button>
+        </td>
+      </tr>
+    `;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function editData(index) {
+            const nameInput = document.getElementById('name');
+            const ageInput = document.getElementById('age');
+            nameInput.value = data[index].name;
+            ageInput.value = data[index].age;
+            document.getElementById('add-btn').innerHTML = 'Update';
+            document.getElementById('add-btn').addEventListener('click', () => {
+                data[index].name = nameInput.value;
+                data[index].age = ageInput.value;
+                renderTable();
+                document.getElementById('add-btn').innerHTML = 'Add';
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Data updated successfully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+        }
+
+        function deleteData(index) {
+            data.splice(index, 1);
+            renderTable();
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Data deleted successfully",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+        document.getElementById('add-btn').addEventListener('click', addData);
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('edit-btn')) {
+                editData(e.target.dataset.index);
+            } else if (e.target.classList.contains('delete-btn')) {
+                deleteData(e.target.dataset.index);
+            }
+        });
+
+        // Initial render
+        renderTable();
+    </script>
+</body>
+
+</html>
