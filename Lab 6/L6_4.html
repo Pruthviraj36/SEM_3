@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Events</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="submitForm()">
+        <input type="text" id="username" placeholder="Username" required>
+        <br>
+        <input type="password" id="password" placeholder="Password" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            alert('Form submitted!');
+            return false; // Prevent form submission for demo purposes
+        }
+    </script>
+</body>
+</html>
+    

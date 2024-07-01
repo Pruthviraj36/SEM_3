@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Events</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        p {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <p id="keypress-info">Press a key on your keyboard.</p>
+
+    <script>
+        document.addEventListener('keydown', function(event) {
+            let key = event.key;
+            document.getElementById('keypress-info').textContent = "Key pressed: " + key;
+        });
+
+        document.addEventListener('keyup', function(event) {
+            document.body.style.backgroundColor = 'blue';
+        });
+    </script>
+</body>
+</html>

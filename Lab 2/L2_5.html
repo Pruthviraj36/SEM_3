@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digit Multiplication</title>
+</head>
+<body>
+    <script>
+        function multiplyDigits(num) {
+            let digits = num.toString().split('');
+            let firstDigit = parseInt(digits[0]);
+            let secondDigit = parseInt(digits[1]);
+            let result = 1;
+            for (let i = 0; i < secondDigit; i++) {
+                result *= firstDigit;
+            }
+            return result;
+        }
+
+        let num = parseInt(prompt("Enter a 2-digit number:"));
+        if (num >= 10 && num <= 99) {
+            alert("The result is: " + multiplyDigits(num));
+        } else {
+            alert("Please enter a 2-digit number.");
+        }
+    </script>
+</body>
+</html>

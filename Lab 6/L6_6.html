@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        input[type="text"], input[type="number"], input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Student Registration Form</h2>
+    <form onsubmit="return validateForm()">
+        <input type="text" id="username" placeholder="Username (min 8 characters)" required>
+        <br>
+        <input type="password" id="password" placeholder="Password (8-12 characters, 1 digit, 1 special character)" required>
+        <br>
+        <input type="password" id="repeatPassword" placeholder="Repeat Password" required>
+        <br>
+        <input type="number" id="age" placeholder="Age (> 18)" required>
+        <br>
+        <input type="email" id="email" placeholder="Email" required>
+        <br>
+        <button type="submit">Register</button>
+        <div id="error-msg" class="error"></div>
+    </form>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let repeatPassword = document.getElementById('repeatPassword').value;
+            let age = document.getElementById('age').value;
+            let email = document.getElementById('email').value;
+
+            // Example validation (you can modify as per requirements)
+            if (username.length < 8) {
+                showError('Username must be at least 8 characters');
+                return false;
+            }
+            if (password.length < 8 || password.length > 12 || !/\d/.test(password) || !/[!@#$%^&*]/.test(password)) {
+                showError('Password must be between 8-12 characters and contain at least 1 digit and 1 special character');
+                return false;
+            }
+            if (password !== repeatPassword) {
+                showError('Passwords do not match');
+                return false;
+            }
+            if (age <= 18) {
+                showError('Age must be greater than 18');
+                return false;
+            }
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError('Invalid email address');
+                return false;
+            }
+
+            alert('Form submitted successfully!');
+            return true;
+        }
+
+        function showError(message) {
+            document.getElementById('error-msg').textContent = message;
+        }
+    </script>
+</body>
+</html>

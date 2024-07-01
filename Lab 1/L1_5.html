@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Check</title>
+</head>
+<body>
+    <script>
+        function isPalindrome(num) {
+            let str = num.toString();
+            let reversedStr = str.split('').reverse().join('');
+            return str === reversedStr;
+        }
+
+        let num = parseInt(prompt("Enter a number:"));
+        if (isPalindrome(num)) {
+            alert(num + " is a palindrome.");
+        } else {
+            alert(num + " is not a palindrome.");
+        }
+    </script>
+</body>
+</html>

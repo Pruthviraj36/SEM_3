@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Maximum Number in Array</title>
+</head>
+<body>
+    <script>
+        function findMax(arr) {
+            if (arr.length === 0) return null;
+            let max = arr[0];
+            for (let i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+
+        let numbers = [5, 8, 3, 12, 6, 9];
+        let maxNumber = findMax(numbers);
+        alert("The maximum number in the array is: " + maxNumber);
+    </script>
+</body>
+</html>

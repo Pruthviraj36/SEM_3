@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+    <script>
+        function calculator() {
+            let num1 = parseFloat(prompt("Enter the first number:"));
+            let num2 = parseFloat(prompt("Enter the second number:"));
+            let operator = prompt("Enter the operator (+, -, *, /):");
+
+            let result;
+            switch(operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    alert("Invalid operator!");
+                    return;
+            }
+
+            alert("The result is: " + result);
+        }
+
+        calculator();
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change HTML Element Properties</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="changeColor()">Click me!</div>
+
+    <script>
+        function changeColor() {
+            let box = document.querySelector('.box');
+            box.style.backgroundColor = 'blue';
+        }
+    </script>
+</body>
+</html>

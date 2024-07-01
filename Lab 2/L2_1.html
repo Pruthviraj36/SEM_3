@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Factors of a Number</title>
+</head>
+<body>
+    <script>
+        function findFactors(num) {
+            let factors = [];
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    factors.push(i);
+                }
+            }
+            return factors;
+        }
+
+        let num = parseInt(prompt("Enter a number:"));
+        let factors = findFactors(num);
+        alert("The factors of " + num + " are: " + factors.join(", "));
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse Events</title>
+    <style>
+        body {
+            text-align: center;
+            padding: 50px;
+        }
+        h2 {
+            color: black;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="heading" onmouseover="changeColor('yellow')" onmouseout="changeColor('black')">Mouse over me!</h2>
+
+    <button onclick="showDateTime()">Find Time</button>
+
+    <script>
+        function changeColor(color) {
+            document.getElementById('heading').style.color = color;
+        }
+
+        function showDateTime() {
+            let dateTime = new Date().toLocaleString();
+            alert("Current Date and Time: " + dateTime);
+        }
+    </script>
+</body>
+</html>

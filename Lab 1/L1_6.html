@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Armstrong Number Check</title>
+</head>
+<body>
+    <script>
+        function isArmstrong(num) {
+            let sum = 0;
+            let temp = num;
+            let numberOfDigits = num.toString().length;
+
+            while (temp > 0) {
+                let digit = temp % 10;
+                sum += Math.pow(digit, numberOfDigits);
+                temp = Math.floor(temp / 10);
+            }
+
+            return sum === num;
+        }
+
+        let num = parseInt(prompt("Enter a number:"));
+        if (isArmstrong(num)) {
+            alert(num + " is an Armstrong number.");
+        } else {
+            alert(num + " is not an Armstrong number.");
+        }
+    </script>
+</body>
+</html>

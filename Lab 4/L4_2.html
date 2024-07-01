@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demonstrating Array Functions</title>
+</head>
+<body>
+    <script>
+        // Initialize an array
+        let fruits = ["Apple", "Banana", "Orange"];
+
+        // Push an element to the end of the array
+        fruits.push("Mango");
+        console.log("After push:", fruits);
+
+        // Pop the last element from the array
+        let poppedFruit = fruits.pop();
+        console.log("Popped element:", poppedFruit);
+        console.log("After pop:", fruits);
+
+        // Shift removes the first element from an array and returns it
+        let shiftedFruit = fruits.shift();
+        console.log("Shifted element:", shiftedFruit);
+        console.log("After shift:", fruits);
+
+        // Unshift adds one or more elements to the beginning of an array
+        fruits.unshift("Pineapple", "Grapes");
+        console.log("After unshift:", fruits);
+
+        // Splice changes the contents of an array by removing or replacing existing elements and/or adding new elements
+        fruits.splice(2, 1, "Strawberry"); // Removes 1 element at index 2 and adds "Strawberry"
+        console.log("After splice:", fruits);
+
+        // Sorting the array alphabetically
+        fruits.sort();
+        console.log("After sort:", fruits);
+    </script>
+</body>
+</html>

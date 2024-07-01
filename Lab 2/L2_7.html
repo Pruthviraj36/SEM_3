@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>First and Last Occurrence of 'a'</title>
+</head>
+<body>
+    <script>
+        function findStringBetween(word) {
+            let firstIndex = word.indexOf('a');
+            let lastIndex = word.lastIndexOf('a');
+
+            if (firstIndex === -1 || lastIndex === -1 || firstIndex === lastIndex) {
+                return "Not enough 'a' characters to perform the operation.";
+            }
+
+            return word.substring(firstIndex + 1, lastIndex);
+        }
+
+        let word = prompt("Enter a word:");
+        let result = findStringBetween(word);
+        alert("The string between the first and last occurrence of 'a' is: " + result);
+    </script>
+</body>
+</html>

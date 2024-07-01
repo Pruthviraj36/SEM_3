@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Data Validation</title>
+    <style>
+        .validation-container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .validation-container input[type="text"],
+        .validation-container input[type="password"],
+        .validation-container input[type="number"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .validation-container input[type="submit"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="validation-container">
+        <h2>User Registration</h2>
+        <form onsubmit="return validateForm()">
+            <input type="text" id="username" placeholder="Username (min 8 characters)" required>
+            <br>
+            <input type="password" id="password" placeholder="Password (8-12 characters, 1 digit, 1 special character)" required>
+            <br>
+            <input type="password" id="repeatPassword" placeholder="Repeat Password" required>
+            <br>
+            <input type="number" id="age" placeholder="Age (> 18)" required>
+            <br>
+            <input type="text" id="enrollment" placeholder="Enrollment (11 digits)" required>
+            <br>
+            <input type="email" id="email" placeholder="Email" required>
+            <br>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+            let repeatPassword = document.getElementById('repeatPassword').value;
+            let age = document.getElementById('age').value;
+            let enrollment = document.getElementById('enrollment').value;
+            let email = document.getElementById('email').value;
+
+            // Username validation
+            if (username.length < 8) {
+                alert('Username must be at least 8 characters');
+                return false;
+            }
+
+            // Password validation
+            if (password.length < 8 || password.length > 12 || !/\d/.test(password) || !/[!@#$%^&*]/.test(password)) {
+                alert('Password must be between 8-12 characters and contain at least 1 digit and 1 special character');
+                return false;
+            }
+
+            // Repeat password validation
+            if (password !== repeatPassword) {
+                alert('Passwords do not match');
+                return false;
+            }
+
+            // Age validation
+            if (age <= 18) {
+                alert('Age must be greater than 18');
+                return false;
+            }
+
+            // Enrollment validation (11 digits)
+            if (enrollment.length !== 11 || isNaN(enrollment)) {
+                alert('Enrollment must be 11 digits');
+                return false;
+            }
+
+            // Email validation
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Invalid email address');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

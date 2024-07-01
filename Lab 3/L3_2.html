@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sort Array in Ascending Order</title>
+</head>
+<body>
+    <script>
+        function sortArray(arr) {
+            return arr.sort(function(a, b) {
+                return a - b;
+            });
+        }
+
+        let numbers = prompt("Enter numbers separated by commas:").split(',').map(Number);
+        let sortedArray = sortArray(numbers);
+        alert("Sorted array in ascending order: " + sortedArray.join(", "));
+    </script>
+</body>
+</html>

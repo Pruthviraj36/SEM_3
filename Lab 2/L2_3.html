@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Patterns</title>
+</head>
+<body>
+    <script>
+        function printPattern(n) {
+            let pattern = "";
+            for (let i = 1; i <= n; i++) {
+                for (let j = 1; j <= i; j++) {
+                    pattern += "* ";
+                }
+                pattern += "\n";
+            }
+            return pattern;
+        }
+
+        let n = parseInt(prompt("Enter the number of rows for the pattern:"));
+        alert(printPattern(n));
+    </script>
+</body>
+</html>

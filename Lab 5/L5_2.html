@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        .login-container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form onsubmit="return validateForm()">
+            <input type="text" id="username" placeholder="Username" required>
+            <br>
+            <input type="password" id="password" placeholder="Password" required>
+            <br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            // Example validation (you can modify as per requirements)
+            if (username.length < 8) {
+                alert('Username must be at least 8 characters');
+                return false;
+            }
+            if (password.length < 8 || !/\d/.test(password) || !/[!@#$%^&*]/.test(password)) {
+                alert('Password must be between 8-12 characters and contain at least 1 digit and 1 special character');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

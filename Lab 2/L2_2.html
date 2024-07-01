@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers in Range</title>
+</head>
+<body>
+    <script>
+        function isPrime(num) {
+            if (num <= 1) return false;
+            if (num <= 3) return true;
+            if (num % 2 === 0 || num % 3 === 0) return false;
+            for (let i = 5; i * i <= num; i += 6) {
+                if (num % i === 0 || num % (i + 2) === 0) return false;
+            }
+            return true;
+        }
+
+        function findPrimes(start, end) {
+            let primes = [];
+            for (let i = start; i <= end; i++) {
+                if (isPrime(i)) {
+                    primes.push(i);
+                }
+            }
+            return primes;
+        }
+
+        let start = parseInt(prompt("Enter the start of the range:"));
+        let end = parseInt(prompt("Enter the end of the range:"));
+        let primes = findPrimes(start, end);
+        alert("The prime numbers between " + start + " and " + end + " are: " + primes.join(", "));
+    </script>
+</body>
+</html>

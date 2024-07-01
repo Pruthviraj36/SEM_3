@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Series</title>
+</head>
+<body>
+    <script>
+        function fibonacci(n) {
+            let fibSeries = [0, 1];
+            for (let i = 2; i < n; i++) {
+                fibSeries[i] = fibSeries[i - 1] + fibSeries[i - 2];
+            }
+            return fibSeries.slice(0, n);
+        }
+
+        let num = parseInt(prompt("Enter the number of terms:"));
+        let series = fibonacci(num);
+        alert("The Fibonacci series is: " + series.join(", "));
+    </script>
+</body>
+</html>

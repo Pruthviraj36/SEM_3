@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Display Products</title>
+</head>
+<body>
+    <script>
+        // Array of products with objects
+        let products = [
+            { id: 1, name: "Laptop", price: 1200 },
+            { id: 2, name: "Phone", price: 800 },
+            { id: 3, name: "Tablet", price: 400 },
+            { id: 4, name: "Headphones", price: 100 }
+        ];
+
+        // Displaying products
+        products.forEach(function(product, index) {
+            console.log("Product " + (index + 1) + ": " + product.name + " - Price: $" + product.price);
+        });
+    </script>
+</body>
+</html>
+    

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number to Words</title>
+</head>
+<body>
+    <script>
+        function numberToWords(num) {
+            const ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+            const teens = ["", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+            const tens = ["", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+            const hundreds = ["", "hundred"];
+
+            if (num < 0 || num > 999) return "out of range";
+            if (isNaN(num)) return "not a number";
+
+            let words = "";
+
+            if (num === 0) return "zero";
+
+            if (Math.floor(num / 100) > 0) {
+                words += ones[Math.floor(num / 100)] + " " + hundreds[1] + " ";
+                num %= 100;
+            }
+
+            if (num > 10 && num < 20) {
+                words += teens[num - 10] + " ";
+            } else {
+                words += tens[Math.floor(num / 10)] + " ";
+                words += ones[num % 10] + " ";
+            }
+
+            return words.trim();
+        }
+
+        let num = parseInt(prompt("Enter a number between 0 and 999:"));
+        alert(numberToWords(num));
+    </script>
+</body>
+</html>

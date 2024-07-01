@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Word in Array</title>
+</head>
+<body>
+    <script>
+        function searchWord(sentence, word) {
+            for (let i = 0; i < sentence.length; i++) {
+                if (sentence[i] === word) {
+                    return i;
+                }
+            }
+            return -1; // Return -1 if word is not found
+        }
+
+        let sentence = ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"];
+        let wordToSearch = prompt("Enter a word to search:");
+        let index = searchWord(sentence, wordToSearch);
+        
+        if (index !== -1) {
+            alert("The word '" + wordToSearch + "' is found at index " + index);
+        } else {
+            alert("The word '" + wordToSearch + "' is not found in the sentence.");
+        }
+    </script>
+</body>
+</html>
