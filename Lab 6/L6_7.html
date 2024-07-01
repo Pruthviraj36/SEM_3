@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>CRUD Operations on Array</title>
     <style>
@@ -7,30 +8,81 @@
             text-align: center;
             padding: 50px;
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
-        input[type="text"], input[type="number"] {
+
+        input[type="text"],
+        input[type="number"] {
             padding: 10px;
             font-size: 16px;
             margin-bottom: 10px;
             width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
         }
+
         button {
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
         table {
             width: 50%;
             margin: 20px auto;
             border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        th, td {
+
+        th,
+        td {
             padding: 10px;
             border: 1px solid #ccc;
         }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        .edit-button,
+        .delete-button {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .edit-button:hover,
+        .delete-button:hover {
+            background-color: #007EA7;
+        }
     </style>
 </head>
+
 <body>
     <h2>CRUD Operations on Array</h2>
 
@@ -61,15 +113,25 @@
                 itemsArray.push(newItem);
                 displayItems();
                 document.getElementById('item').value = '';
+
+                // Show success message using Swal.fire
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your item has been added",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         }
+
 
         // Function to display items in the table
         function displayItems() {
             let tableBody = document.getElementById('itemsTable');
             tableBody.innerHTML = ''; // Clear existing rows
 
-            itemsArray.forEach(function(item, index) {
+            itemsArray.forEach(function (item, index) {
                 let row = document.createElement('tr');
 
                 let indexCell = document.createElement('td');
@@ -85,7 +147,8 @@
                 // Edit button
                 let editButton = document.createElement('button');
                 editButton.textContent = 'Edit';
-                editButton.onclick = function() {
+                editButton.className = 'edit-button';
+                editButton.onclick = function () {
                     editItem(index);
                 };
                 actionCell.appendChild(editButton);
@@ -93,7 +156,8 @@
                 // Delete button
                 let deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Delete';
-                deleteButton.onclick = function() {
+                deleteButton.className = 'delete-button';
+                deleteButton.onclick = function () {
                     deleteItem(index);
                 };
                 actionCell.appendChild(deleteButton);
@@ -112,17 +176,28 @@
                 displayItems();
             }
         }
-
         // Function to delete an item
         function deleteItem(index) {
             if (confirm('Are you sure you want to delete this item?')) {
                 itemsArray.splice(index, 1);
                 displayItems();
+
+                // Show deletion message using Swal.fire
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your item has been deleted",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         }
+
 
         // Initial display of items
         displayItems();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
+
 </html>
