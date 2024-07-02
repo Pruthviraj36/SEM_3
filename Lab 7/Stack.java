@@ -40,12 +40,12 @@ public class Stack {
         System.out.println();
     }
 
-    public int peep() {
+    public int peep(int index) {
         if (isEmpty()) {
             System.out.println("Stack is empty");
             return -1;
         }
-        return stack[top];
+        return stack[top-i+1];
     }
 
     public void change(int index, int value) {
@@ -72,7 +72,7 @@ public class Stack {
         Stack stack = new Stack(size);
 
         while (true) {
-            System.out.println("1. PUSH");
+            System.out.println("\n1. PUSH");
             System.out.println("2. POP");
             System.out.println("3. DISPLAY");
             System.out.println("4. PEEP");
@@ -80,6 +80,7 @@ public class Stack {
             System.out.println("6. EXIT");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
+            System.out.print("\n");
 
             switch (choice) {
                 case 1:
@@ -97,9 +98,11 @@ public class Stack {
                     stack.display();
                     break;
                 case 4:
-                    int topElement = stack.peep();
-                    if (topElement != -1) {
-                        System.out.println("Top element: " + topElement);
+                    System.out.print("Enter the index of element: ")
+                    int topElement = scanner.nextInt();
+                    int peepedElement = stack.peep(topElement);
+                    if (peepedElement != -1) {
+                        System.out.println("Top element: " + peepedElement);
                     }
                     break;
                 case 5:
@@ -113,7 +116,7 @@ public class Stack {
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice");
-            }
-        }
-    }
-}
+            }    
+        }    
+    }    
+}    
