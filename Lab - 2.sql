@@ -372,11 +372,33 @@ SELECT * FROM Employee_MASTER
 
 --2. Delete all the Employees who belongs to ‘RAJKOT’ city.
 
-
+DELETE FROM  Employee_MASTER WHERE city = 'RAJKOT'
+SELECT * FROM Employee_MASTER
 
 --3. Delete all the Employees who joined after 1-1-2007.
+
+DELETE FROM  Employee_MASTER WHERE JoiningDate > '2007-1-1'
+SELECT * FROM Employee_MASTER
+
 --4. Delete the records of Employees whose joining date is null and Name is not null.
+
+DELETE FROM  Employee_MASTER WHERE JoiningDate IS NULL AND  EmpName != NULL
+SELECT * FROM Employee_MASTER
+
 --5. Delete the records of Employees whose salary is 50% of 20000.
+
+DELETE FROM  Employee_MASTER WHERE Salary = (50*200)
+SELECT * FROM Employee_MASTER
+
 --6. Delete the records of Employees whose City Name is not empty.
+
+DELETE FROM  Employee_MASTER WHERE City != NULL
+SELECT * FROM Employee_MASTER
+
 --7. Delete all the records of Employee_MASTER table. (Use Truncate)
+
+TRUNCATE TABLE Employee_MASTER
+
 --8. Remove Employee_MASTER table. (Use Drop)
+
+DROP TABLE Employee_MASTER
