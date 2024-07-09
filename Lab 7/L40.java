@@ -1,32 +1,31 @@
-import java.util.Scanner;
-
+import java.util.*;
 public class L40 {
+
     public static boolean isAiBi(String str) {
-        int countA = 0, countB = 0;
+        Stack<Character> countA = new Stack<Character>();
+        Stack<Character> countB = new Stack<Character>();
+
         int i = 0;
 
-        while (i < str.length() && str.charAt(i) == 'a') {
-            countA++;
+        while(i < str.length() && (str.charAt(i) == 'a' || str.charAt(i) == 'A')) {
+            countA.push('a');
+            i++;
+        }
+        while(i < str.length() && (str.charAt(i) == 'b' || str.charAt(i) == 'B')) {
+            countB.push('b');
             i++;
         }
 
-        while (i < str.length() && str.charAt(i) == 'b') {
-            countB++;
-            i++;
-        }
-
-        return i == str.length() && countA == countB && countA > 0;
+        return i == str.length() && countA.size() == countB.size();
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String str = scanner.nextLine();
+        Scanner sc = new Scanner(System.in);
 
-        if (isAiBi(str)) {
-            System.out.println("The string is of the form a^i b^i.");
-        } else {
-            System.out.println("The string is NOT of the form a^i b^i.");
-        }
+        System.out.print("Enter a String to Check : ");
+        String str = sc.next();
+
+        if(isAiBi(str)) System.out.println("tu sacho ho bhura");
+        else System.out.println("sarkhu string nakhey bhura");
     }
 }
