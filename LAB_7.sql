@@ -89,7 +89,7 @@ SELECT JoiningDate, SUM(salary) AS total_salary
 FROM EMP
 GROUP BY JoiningDate
 ORDER BY JoiningDate;
---4. Find the Maximum salary department & city wise in which city name starts with ‘R’.
+--4. Find the Maximum salary department & city wise in which city name starts with â€˜Râ€™.
 SELECT DEPARTMENT, CITY, MAX(SALARY) AS Maximum_Salary
 FROM EMP
 WHERE CITY LIKE 'R%'
