@@ -94,7 +94,7 @@ INSERT INTO EMP_MASTER VALUES
 
 ------------------------------------------------------------------------------STRING FUNCTIONS----------------------------------------------------------------------------------------
 --	PART-A
---1. Find the length of following. (I) NULL (II) ‚Äò hello ‚Äô (III) Blank
+--1. Find the length of following. (I) NULL (II) ë hello í (III) Blank
 SELECT
 	LEN(NULL),
 	LEN('hello'),
@@ -110,11 +110,11 @@ SELECT
 --4. Display 3rd to 10th character of your name.
 SELECT
 	SUBSTRING('CHAUHAN PRUTHVIRAJ', 3, 10);
---5. Write a query to convert ‚Äòabc123efg‚Äô to ‚ÄòabcXYZefg‚Äô & ‚Äòabcabcabc‚Äô to ‚Äòab5ab5ab5‚Äô using REPLACE.
+--5. Write a query to convert ëabc123efgí to ëabcXYZefgí & ëabcabcabcí to ëab5ab5ab5í using REPLACE.
 SELECT
 	REPLACE('abc123efg', 'abc123efg','abcXYZefg'),
 	REPLACE('abcabcabc', 'abcabcabc','ab5ab5ab5')
---6. Write a query to display ASCII code for ‚Äòa‚Äô,‚ÄôA‚Äô,‚Äôz‚Äô,‚ÄôZ‚Äô, 0, 9.
+--6. Write a query to display ASCII code for ëaí,íAí,ízí,íZí, 0, 9.
 SELECT
 	ASCII('a'),
 	ASCII('A'),
@@ -130,17 +130,17 @@ SELECT
 	CHAR(90),
 	CHAR(48),
 	CHAR(57);
---8. Write a query to remove spaces from left of a given string ‚Äòhello world ‚Äò.
+--8. Write a query to remove spaces from left of a given string ëhello world ë.
 SELECT
 	LTRIM('     hello world');
---9. Write a query to remove spaces from right of a given string ‚Äò hello world ‚Äò.
+--9. Write a query to remove spaces from right of a given string ë hello world ë.
 SELECT
 	RTRIM('hello world      ');
---10. Write a query to display first 4 & Last 5 characters of ‚ÄòSQL Server‚Äô.
+--10. Write a query to display first 4 & Last 5 characters of ëSQL Serverí.
 SELECT
 	LEFT('SQL Server', 4),
 	RIGHT('SQL Server', 5);
---11. Write a query to convert a string ‚Äò1234.56‚Äô to number (Use cast and convert function).
+--11. Write a query to convert a string ë1234.56í to number (Use cast and convert function).
 SELECT
 	CAST('123.45' AS decimal(10, 2));
 --12. Write a query to convert a float 10.58 to integer (Use cast and convert function).
@@ -153,7 +153,7 @@ SELECT
 SELECT
 	CONCAT('CHAUHAN', ' PRUTHVIRAJ'),
 	'CHAUHAN'+' PRUTHVIRAJ';
---15. Find reverse of ‚ÄúDarshan‚Äù.
+--15. Find reverse of ìDarshanî.
 SELECT
 	REVERSE('Darshan');
 --16. Repeat your name 3 times.
@@ -161,7 +161,7 @@ SELECT
 	REPLICATE('CHAUHAN', 3);
 
 --Date Functions
---Part ‚Äì A:
+--Part ñ A:
 --1. Write a query to display the current date & time. Label the column Today_Date.
 SELECT
 	GETDATE();

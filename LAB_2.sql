@@ -53,7 +53,7 @@
 
 	select loan_no, amount from BORROW
 
-	-- 6. Display loan details of all customers who belongs to â€˜ANDHERIâ€™ branch from borrow table.
+	-- 6. Display loan details of all customers who belongs to ‘ANDHERI’ branch from borrow table.
 
 	select * from BORROW 
 	where vname='ANDHERI'
@@ -76,7 +76,7 @@
 
 	select cname from deposit where actno < 105
 
-	-- 11. Display name of customer who belongs to either â€˜NAGPURâ€™ or â€˜DELHIâ€™ from customer table. (OR & IN)
+	-- 11. Display name of customer who belongs to either ‘NAGPUR’ or ‘DELHI’ from customer table. (OR & IN)
 
 	select cname from CUSTOMERS 
 	where CITY = 'NAGPUR' OR CITY = 'DELHI'
@@ -99,13 +99,13 @@
 	select * from borrow 
 	where amount between 3000 and 8000
 
-	-- 14. Find all depositors who do not belongs to â€˜ANDHERIâ€™ branch from deposit table.
+	-- 14. Find all depositors who do not belongs to ‘ANDHERI’ branch from deposit table.
 
 	select * from deposit
 	where bname <> 'ANDHERI'
 
-	-- 15. Display Account No, Customer Name & Amount of such customers who belongs to â€˜AJNIâ€™, â€˜KAROLBAGHâ€™
-	-- Or â€˜M.G.ROADâ€™ and Account No is less than 104 from deposit table.
+	-- 15. Display Account No, Customer Name & Amount of such customers who belongs to ‘AJNI’, ‘KAROLBAGH’
+	-- Or ‘M.G.ROAD’ and Account No is less than 104 from deposit table.
 
 	select actno, cname, amount from deposit
 	where bname in ('AJNI', 'KAROLBAGH', 'M.G.ROAD')
@@ -122,7 +122,7 @@
 
 	select top 3 * from deposit where amount > 1000
 
-	-- 3. Display Loan No, Customer Name of first five borrowers whose branch name does not belongs to â€˜ANDHERIâ€™ from borrow table.
+	-- 3. Display Loan No, Customer Name of first five borrowers whose branch name does not belongs to ‘ANDHERI’ from borrow table.
 
 	select  top 5 loan_no, cname from BORROW
 	-- 4. Retrieve all unique cities using DISTINCT. (Use Customers Table)
@@ -370,7 +370,7 @@
 	DELETE FROM  Employee_MASTER WHERE Salary >= 14000
 	SELECT * FROM Employee_MASTER
 
-	--2. Delete all the Employees who belongs to â€˜RAJKOTâ€™ city.
+	--2. Delete all the Employees who belongs to ‘RAJKOT’ city.
 
 	DELETE FROM  Employee_MASTER WHERE city = 'RAJKOT'
 	SELECT * FROM Employee_MASTER
