@@ -41,7 +41,7 @@ INSERT INTO Department (DID, DName) VALUES
 
 
 
---Part – A:
+--Part â€“ A:
 --1. Display details of students who are from computer department.
 SELECT * 
 FROM Stu_Detail
@@ -97,7 +97,7 @@ WHERE Rno IN (
 	WHERE Bklog > 1
 )
 
--------------------------------------Part – B:
+-------------------------------------Part â€“ B:
 --1. Display name of students who are either from computer department or from mechanical department.
 SELECT Name
 FROM Stu_Detail
@@ -116,9 +116,23 @@ WHERE DID IN (
 	WHERE Rno = 102
 )
 
---Part – C:
+--Part â€“ C:
 --1. Display name of students whose SPI is more than 9 and who is from electrical department.
-SELECT NameFROM Stu_DetailWHERE Rno IN (	SELECT Rno	FROM Academic	WHERE SPI > 9)AND DID IN (	SELECT DID	FROM Department	WHERE DName = 'Electrical')--2. Display name of student who is having second highest SPI.SELECT Name
+SELECT Name
+FROM Stu_Detail
+WHERE Rno IN (
+	SELECT Rno
+	FROM Academic
+	WHERE SPI > 9
+)
+AND DID IN (
+	SELECT DID
+	FROM Department
+	WHERE DName = 'Electrical'
+)
+
+--2. Display name of student who is having second highest SPI.
+SELECT Name
 FROM Stu_Detail
 WHERE Rno = (
     SELECT TOP 1 Rno
@@ -131,4 +145,21 @@ WHERE Rno = (
     ORDER BY SPI DESC
     OFFSET 1 ROWS
 )
---3. Display city names whose students branch wise SPI is 9.2SELECT CityFROM Stu_DetailWHERE DID IN (	SELECT DID	FROM Department	GROUP BY DName	HAVING )
+
+--3. Display city names whose students branch wise SPI is 9.2
+SELECT City
+FROM Stu_Detail
+WHERE DID IN (
+	SELECT d.DID
+	FROM Department d
+	JOIN Stu_Detail s
+	ON d.DID = s.DID
+	GROUP BY d.DName
+	HAVING d.DID IN (
+		SELECT s.DID
+		FROM Stu_Detail s
+		JOIN Academic a
+		ON s.Rno = a.Rno
+		WHERE a.SPI = 9.2
+	)
+)
